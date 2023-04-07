@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
     name='viewport'/>
-    <title>فروشگاه اینترنتی دیجی اسمارت</title>
+    <title>فروشگاه اینترنتی </title>
     <!--    font------------------------------------>
     <link rel="stylesheet" href="/public/client/css/font-awesome.min.css">
     <link rel="stylesheet" href="/public/client/css/materialdesignicons.css">
@@ -31,7 +31,7 @@
             <div class="col-lg-8 col-md-8 col-xs-12 pull-right">
                 <div class="header-right">
                     <div class="logo">
-                        <a href="#"><img src="/public/client/images/logo.png"></a>
+                        <a href="/"><img src="/public/client/images/logo.png"></a>
                     </div>
                     <div class="col-lg-9 col-md-9 col-xs-12 pull-right">
                         <div class="search-header">
@@ -1024,9 +1024,7 @@
                         <li class="item-list-menu megamenu">
                             <a href="#" class="list-category">ثبت فروشگاه</a>
                         </li>
-                        <li class="item-list-menu megamenu">
-                            <a href="#" class="list-category">دیجی اسمارت من</a>
-                        </li>
+                        
                         <li class="item-list-menu megamenu">
                             <a href="#" class="list-category">مقالات</a>
                         </li>
