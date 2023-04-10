@@ -6,24 +6,44 @@ require_once 'app/models/UserModel.php';
 require_once 'app/controllers/HomeController.php';
 require_once 'app/controllers/AuthController.php';
 require_once 'app/controllers/AdminController.php';
+require_once 'app/controllers/CategoryController.php';
+
+// Get the requested URL
+$request = $_SERVER['REQUEST_URI'];
+
+// Parse the URL to get the path and query string
+$url_parts = parse_url($request);
+$path = $url_parts['path'];
+
+// Check if the query key exists
+if (isset($url_parts['query'])) {
+    $query_string = $url_parts['query'];
+} else {
+    $query_string = '';
+}
+
+//var_dump($path);
+//var_dump($query_string);
+//die();
+
 // Instantiate controllers based on URL
-if ($_SERVER['REQUEST_URI'] === '/') {
+if ($path === '/') {
   $controller = new HomeController();
   $controller->index();
-}elseif ($_SERVER['REQUEST_URI'] === '/about'){
+}elseif ($path === '/about'){
     $controller = new HomeController();
     $controller->about();
-} elseif ($_SERVER['REQUEST_URI'] === '/login') {
+} elseif ($path === '/login') {
   $controller = new AuthController();
   $controller->login();
-} elseif ($_SERVER['REQUEST_URI'] === '/register') {
+} elseif ($path === '/register') {
   $controller = new AuthController();
   $controller->register();
 }
 // --------panel routes---------
-elseif (str_starts_with($_SERVER['REQUEST_URI'], '/panel')) {
+elseif (str_starts_with($path, '/panel')) {
 
-    $string = $_SERVER['REQUEST_URI'];
+    $string = $path;
     $first_letters = substr($string, 0, 6);
     $middle = substr($string, 6, 1);
     $rest_letters = substr($string, 7);
@@ -37,9 +57,50 @@ elseif (str_starts_with($_SERVER['REQUEST_URI'], '/panel')) {
     else{
         switch ($rest_letters)
         {
-            case 'login':
-                echo 'login';
+            case 'category':
+                $controller = new CategoryController();
+                $controller->index();
                 break;
+
+            case 'editcategory':
+                $id = $_GET['id'];
+                $controller = new CategoryController();
+                $controller->edit($id);
+                break;
+
+            case 'updatecategory':
+                $id = $_GET['id'];
+                $category = $_POST['category'];
+                $controller = new CategoryController();
+                $controller->update($id,$category);
+                break;
+
+            case 'deletecategory':
+                $id = $_GET['id'];
+                $controller = new CategoryController();
+                $controller->delete($id);
+                break;
+
+            case 'createcategory':
+                $controller = new CategoryController();
+                $controller->create();
+                break;
+
+            case 'storecategory':
+                $controller = new CategoryController();
+                $category = $_POST['category'];
+                $controller->store($category);
+                break;
+
+
+
+
+
+
+
+
+
+
 
             default:
                 // Handle 404 error

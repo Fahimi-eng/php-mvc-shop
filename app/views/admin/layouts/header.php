@@ -88,19 +88,19 @@
                         <img alt="user-img" class="avatar avatar-xl brround" src="/public/admin/img/faces/6.jpg"><span class="avatar-status profile-status bg-green"></span>
                     </div>
                     <div class="user-info">
-                        <h4 class="fw-semibold mt-3 mb-0">پتی کروزر</h4>
+                        <h4 class="fw-semibold mt-3 mb-0">ادمین</h4>
                         <span class="mb-0 text-muted">مدیریت</span>
                     </div>
                 </div>
             </div>
             <ul class="side-menu">
-                <li class="side-item side-item-category">اصلی</li>
+                <li class="side-item side-item-category">داشبورد</li>
                 <li class="slide">
-                    <a class="side-menu__item" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 5h4v6H5zm10 8h4v6h-4zM5 17h4v2H5zM15 5h4v2h-4z" opacity=".3"/><path d="M3 13h8V3H3v10zm2-8h4v6H5V5zm8 16h8V11h-8v10zm2-8h4v6h-4v-6zM13 3v6h8V3h-8zm6 4h-4V5h4v2zM3 21h8v-6H3v6zm2-4h4v2H5v-2z"/></svg><span class="side-menu__label">صفحه اصلی</span><span class="badge bg-success text-light" id="bg-side-text">1</span></a>
+                    <a class="side-menu__item" href="/panel"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 5h4v6H5zm10 8h4v6h-4zM5 17h4v2H5zM15 5h4v2h-4z" opacity=".3"/><path d="M3 13h8V3H3v10zm2-8h4v6H5V5zm8 16h8V11h-8v10zm2-8h4v6h-4v-6zM13 3v6h8V3h-8zm6 4h-4V5h4v2zM3 21h8v-6H3v6zm2-4h4v2H5v-2z"/></svg><span class="side-menu__label">صفحه اصلی</span><span class="badge bg-success text-light" id="bg-side-text">1</span></a>
                 </li>
                 <li class="side-item side-item-category">تجارت الکترونیک</li>
                 <li class="slide">
-                    <a class="side-menu__item" href="icons.html"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon"  viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 4c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm3.5 4c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm-7 0c.83 0 1.5.67 1.5 1.5S9.33 11 8.5 11 7 10.33 7 9.5 7.67 8 8.5 8zm3.5 9.5c-2.33 0-4.32-1.45-5.12-3.5h1.67c.7 1.19 1.97 2 3.45 2s2.76-.81 3.45-2h1.67c-.8 2.05-2.79 3.5-5.12 3.5z" opacity=".3"/><circle cx="15.5" cy="9.5" r="1.5"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M12 16c-1.48 0-2.75-.81-3.45-2H6.88c.8 2.05 2.79 3.5 5.12 3.5s4.32-1.45 5.12-3.5h-1.67c-.69 1.19-1.97 2-3.45 2zm-.01-14C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg><span class="side-menu__label">آیکون ها</span><span class="badge bg-danger text-light" id="bg-side-text">جدید</span></a>
+                    <a class="side-menu__item" href="/panel/category"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon"  viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 4c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm3.5 4c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm-7 0c.83 0 1.5.67 1.5 1.5S9.33 11 8.5 11 7 10.33 7 9.5 7.67 8 8.5 8zm3.5 9.5c-2.33 0-4.32-1.45-5.12-3.5h1.67c.7 1.19 1.97 2 3.45 2s2.76-.81 3.45-2h1.67c-.8 2.05-2.79 3.5-5.12 3.5z" opacity=".3"/><circle cx="15.5" cy="9.5" r="1.5"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M12 16c-1.48 0-2.75-.81-3.45-2H6.88c.8 2.05 2.79 3.5 5.12 3.5s4.32-1.45 5.12-3.5h-1.67c-.69 1.19-1.97 2-3.45 2zm-.01-14C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg><span class="side-menu__label">دسته بندی ها</span><span class="badge bg-danger text-light" id="bg-side-text">جدید</span></a>
                 </li>
                 <li class="slide">
                     <a class="side-menu__item" data-bs-toggle="slide" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 5H5v14h14V5zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm2 0h14v14H5V5zm2 5h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg><span class="side-menu__label">نمودار</span><i class="angle fe fe-chevron-down"></i></a>
@@ -233,7 +233,7 @@
                                         </div>
                                         <div class="wd-90p">
                                             <div class="d-flex">
-                                                <h5 class="mb-1 name">پتی کروزر</h5>
+                                                <h5 class="mb-1 name">ادمین</h5>
                                             </div>
                                             <p class="mb-0 desc">متاسفم اما مطمئن نیستم که چگونه به شما در این زمینه کمک کنم ......</p>
                                             <p class="time mb-0 text-left float-right mr-2 mt-2">15 مهر 3:55 بعد از ظهر</p>
@@ -369,7 +369,7 @@
                                     <div class="d-flex wd-100p">
                                         <div class="main-img-user"><img alt="" src="/public/admin/img/faces/6.jpg" class=""></div>
                                         <div class="ms-3 my-auto">
-                                            <h6>پتی کروزر</h6><span>مدیریت</span>
+                                            <h6>ادمین</h6><span>مدیریت</span>
                                         </div>
                                     </div>
                                 </div>
@@ -397,8 +397,27 @@
             <div class="breadcrumb-header justify-content-between">
                 <div class="my-auto">
                     <div class="d-flex">
-                        <h4 class="content-title mb-0 my-auto">تجارت الکترونیک</h4><span
-                                class="text-muted mt-1 tx-13 ms-2 mb-0">/ محصولات</span>
+                        <?php
+                        if (isset($breadcrumb['topic'])){
+                            echo '<h4 class="content-title mb-0 my-auto">'.$breadcrumb['topic']['title'].'</h4>';
+                        }
+                        if (isset($breadcrumb['data'])){
+                            echo '<span class="text-muted mt-1 tx-13 ms-2 mb-0">/</span>';
+                        }
+
+                        if (isset($breadcrumb['data'])){
+                            foreach ($breadcrumb['data'] as $key=>$value)
+                            {
+                                echo '<a href="'.$value['url'].'" class="text-muted mt-1 tx-13 ms-2 mb-0">'.$value['title'].'</a>';
+                                if ($key != (sizeof($breadcrumb['data'])-1)){
+                                    echo '<span class="text-muted mt-1 tx-13 ms-2 mb-0">/</span>';
+                                }
+
+                            }
+                        }
+                        ?>
+
+
                     </div>
                 </div>
                 <div class="d-flex my-xl-auto right-content">

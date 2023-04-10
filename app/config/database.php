@@ -12,7 +12,7 @@ class Database {
     try {
       $this->conn = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->username, $this->password);
     } catch(PDOException $e) {
-      // Handle database connection error
+      die($e->getMessage());
     }
   }
 
