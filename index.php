@@ -7,6 +7,7 @@ require_once 'app/controllers/HomeController.php';
 require_once 'app/controllers/AuthController.php';
 require_once 'app/controllers/AdminController.php';
 require_once 'app/controllers/CategoryController.php';
+require_once 'app/controllers/ProductController.php';
 
 // Get the requested URL
 $request = $_SERVER['REQUEST_URI'];
@@ -57,6 +58,7 @@ elseif (str_starts_with($path, '/panel')) {
     else{
         switch ($rest_letters)
         {
+            //category
             case 'category':
                 $controller = new CategoryController();
                 $controller->index();
@@ -91,6 +93,37 @@ elseif (str_starts_with($path, '/panel')) {
                 $category = $_POST['category'];
                 $controller->store($category);
                 break;
+
+            //product
+            case 'product':
+                $controller = new ProductController();
+                $controller->index();
+                break;
+
+            case 'createproduct':
+                $controller = new ProductController();
+                $controller->create();
+                break;
+
+            case 'storeproduct':
+                //we can filter and sanitize input files here
+                $product = $_POST['product'];
+
+                $controller = new ProductController();
+                $controller->store($product,$_FILES['images']);
+                break;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

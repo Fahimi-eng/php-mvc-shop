@@ -33,7 +33,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($categories as $key=>$item): ?>
+                        <?php
+                        if (is_array($categories)){
+                        foreach ($categories as $key=>$item): ?>
                         <tr>
                             <th scope="row"><?php echo ++$key?></th>
                             <td><?php echo $item['title']; ?></td>
@@ -43,7 +45,9 @@
                                     <a href="/panel/editcategory?id=<?php echo $item['id']; ?>" class="btn btn-light-gradient btn-icon"><i class="typcn typcn-pen"></i></a>
                             </td>
                         </tr>
-                        <?php endforeach; ?>
+                        <?php endforeach;
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div>

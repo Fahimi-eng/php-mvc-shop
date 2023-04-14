@@ -1,7 +1,6 @@
 <?php
 class CategoryModel {
     private $db;
-    private $table = "categories";
 
     public function __construct() {
         $this->db = new Database();
@@ -65,6 +64,7 @@ class CategoryModel {
 
     public function store($category)
     {
+
         $title = $category['title'];
         $category_id = $category['category_id'];
         //prepare and execute insert query

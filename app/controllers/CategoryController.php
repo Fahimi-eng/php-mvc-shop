@@ -79,6 +79,8 @@ class CategoryController {
 
     public function store($category)
     {
+        var_dump( $category['category_id']);
+
         $result = $this->CategoryModel->store($category);
         if ($result){
             $message = 1;
