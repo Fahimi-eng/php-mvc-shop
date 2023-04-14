@@ -97,7 +97,26 @@ elseif (str_starts_with($path, '/panel')) {
             //product
             case 'product':
                 $controller = new ProductController();
-                $controller->index();
+                if(@$_GET['id'])
+                {
+                    $id = $_GET['id'];
+                    if (@$_GET['available']){
+                        $available = $_GET['available'];
+                        $controller->index($id,$available);
+                    }
+                    else{
+                        $controller->index($id);
+                    }
+                }
+                else{
+                    if (@$_GET['available']){
+                        $available = $_GET['available'];
+                        $controller->index(0,$available);
+                    }
+                    else{
+                        $controller->index();
+                    }
+                }
                 break;
 
             case 'createproduct':
@@ -106,9 +125,7 @@ elseif (str_starts_with($path, '/panel')) {
                 break;
 
             case 'storeproduct':
-                //we can filter and sanitize input files here
                 $product = $_POST['product'];
-
                 $controller = new ProductController();
                 $controller->store($product,$_FILES['images']);
                 break;

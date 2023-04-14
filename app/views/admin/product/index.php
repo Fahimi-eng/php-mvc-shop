@@ -1,7 +1,4 @@
 <?php include_once 'app/views/admin/layouts/header.php';  ?>
-
-
-
     <!-- row -->
     <div class="row row-sm">
         <div class="col-xl-12 col-lg-12 col-md-12">
@@ -34,26 +31,20 @@
                                         <div class="dropdown-menu tx-13">
                                             <h6 class="dropdown-header tx-uppercase tx-11 tx-bold tx-inverse tx-spacing-1">دسته بندی محصولات</h6>
                                             <?php foreach ($categories as $item):  ?>
-                                                <a class="dropdown-item" href="#"><?php echo $item['title']; ?></a>
+                                                <a class="dropdown-item" href="/panel/product?id=<?php echo $item['id']; ?>"><?php echo $item['title']; ?></a>
                                              <?php endforeach; ?>
-                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">همه دسته بندی ها</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="/panel/product">همه دسته بندی ها</a>
                                         </div>
-
-
                                     </th>
                                     <th>
-                                        <button class="btn btn-primary btn-block">موجود</button>
+                                        <a href="/panel/product?available=1<?php if (@$current_cat){echo '&id='.$current_cat;} ?>" class="btn btn-info btn-block">موجود</a>
                                     </th>
                                     <th>
-                                        <button class="btn btn-secondary btn-block">ناموجود</button>
+                                        <a href="/panel/product?available=-1<?php if (@$current_cat){echo '&id='.$current_cat;} ?>" class="btn btn-danger btn-block">ناموجود</a>
                                     </th>
                                     <th>
-                                        <button class="btn btn-info btn-block">ارزان ترین</button>
+                                        <a href="/panel/product" class="btn btn-dark btn-block">همه</a>
                                     </th>
-                                    <th>
-                                        <button class="btn btn-danger btn-block">گرانترین</button>
-                                    </th>
-
                                 </tr>
                                 </thead>
                             </table>
@@ -64,15 +55,15 @@
             <!--/div-->
 
             <div class="row row-sm">
-
-                <?php foreach ($products as $product) { ?>
+                <?php
+                if ($products){
+                foreach ($products as $product) { ?>
 <!--                start card              -->
                 <div class="col-md-6 col-lg-3 col-xl-3  col-sm-6">
                     <div class="card">
                         <div class="card-body">
                             <div class="pro-img-box">
                                 <div class="d-flex product-sale">
-
                                     <?php
                                     if ($product['count'] > 0) {
                                         echo '<div class="badge bg-success"> موجود</div>';
@@ -83,17 +74,17 @@
                                     <i class="mdi mdi-heart-outline ml-auto wishlist"></i>
                                 </div>
                                 <img class="w-100" src="<?php echo $product['image']; ?>" alt="تصویر محصول">
-                                <a href="#" class="adtocart"> <i class="las la-eye"></i>
+                                <a href="#" class="adtocart"> <i class="las la-hand-pointer"></i>
                                 </a>
                             </div>
                             <div class="text-center pt-3">
                                 <h3 class="h6 mb-2 mt-4 font-weight-bold text-uppercase"><?php echo $product['title'] ; ?></h3>
                                 <h4 class="h5 mb-0 mt-2 text-center font-weight-bold text-danger"> <?php echo $product['price'] ; ?> </h4>
                                 <h5 class="h6 mb-0 mt-2 text-center text-dark"> <?php
-                                    foreach ($categories as $category) {
-                                            if ($category['id'] == $product['category_id'])
+                                    foreach ($categories as $item) {
+                                            if ($item['id'] == $product['category_id'])
                                             {
-                                                echo $category['title'];
+                                                echo $item['title'];
                                             }
                                         }
                                     ?></h5>
@@ -102,8 +93,11 @@
                     </div>
                 </div>
 <!--                end card                 -->
-                <?php } ?>
+                <?php } }?>
 <!--                start pagination-->
+                <?php
+                if ($products != false && count($products)>16){
+                ?>
                 <ul class="pagination product-pagination mr-auto float-left">
                     <li class="page-item page-prev disabled">
                         <a class="page-link" href="#" tabindex="-1">قبلی</a>
@@ -117,6 +111,7 @@
                         <a class="page-link" href="#">بعدی</a>
                     </li>
                 </ul>
+                    <?php } ?>
 <!--                end pagination-->
             </div>
         </div>

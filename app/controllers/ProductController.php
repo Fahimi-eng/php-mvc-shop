@@ -14,10 +14,9 @@ class ProductController
     }
 
 
-
-
-    public function index()
+    public function index($category=0, $available=0)
     {
+
         $breadcrumb = [
             'topic' =>[
                 'title'=>'تجارت الکترونیک'
@@ -26,13 +25,27 @@ class ProductController
                 ['title' => 'محصولات', 'url' => '/panel/product']
             ]
         ];
-        $products = $this->ProductModel->all();
+
         $categories = $this->CategoryModel->all();
+        $products = $this->ProductModel->all($category,$available);
+
+        if ($category != 0)
+        {
+            $current_cat = $category;
+        }
         require "app/views/admin/product/index.php";
     }
 
     public function create()
     {
+        $breadcrumb = [
+            'topic' =>[
+                'title'=>'تجارت الکترونیک'
+            ],
+            'data' =>[
+                ['title' => 'افزودن محصول جدید', 'url' => '/panel/createproduct']
+            ]
+        ];
         $categories = $this->CategoryModel->all();
         require 'app/views/admin/product/create.php';
     }
@@ -47,7 +60,6 @@ class ProductController
         }
 
     }
-
 
 
 

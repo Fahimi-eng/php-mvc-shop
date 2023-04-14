@@ -1,4 +1,4 @@
-<?php include_once 'app/views/admin/layouts/header.php'; ?>
+<?php  include_once 'app/views/admin/layouts/header.php'; ?>
 <div class="row row-sm">
     <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12">
         <div class="card  box-shadow-0">
@@ -8,10 +8,9 @@
             </div>
             <div class="card-body pt-0">
                 <form action="/panel/updatecategory?id=<?php echo $category['id']; ?>" method="post" class="form-horizontal">
-
                     <div class="form-group">
                         عنوان دسته بندی
-                        <input value="<?php echo $category['title'] ?>" name="category[title]" type="text" class="form-control" id="inputName" placeholder="عنوان دسته بندی">
+                        <input value="<?php echo $category['title']; ?>" name="category[title]" type="text" class="form-control" id="inputName" placeholder="عنوان دسته بندی">
                     </div>
                     زیر دسته بندی
                     <select name="category[category_id]" class="form-control select2-no-search">

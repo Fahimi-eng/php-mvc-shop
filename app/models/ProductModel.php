@@ -8,15 +8,72 @@ class ProductModel
         $this->db = new Database();
     }
 
-    public function all()
+    public function all( $category_id, $is_available)
     {
-        $result = $this->db->getConnection()->query('SELECT * FROM products')->fetchAll();
-        if ($result)
+        if ($category_id == 0)
         {
-            return $result;
+            if ($is_available == 0)
+            {
+                $result = $this->db->getConnection()->query('SELECT * FROM products')->fetchAll();
+                if ($result)
+                {
+                    return $result;
+                }
+                else{
+                    return false;
+                }
+            }
+            elseif ($is_available > 0)
+            {
+                $result = $this->db->getConnection()->query('SELECT * FROM products WHERE count > 0')->fetchAll();
+                return $result;
+            }
+            else{
+                $result = $this->db->getConnection()->query('SELECT * FROM products where count = 0')->fetchAll();
+                return $result;
+            }
         }
         else{
-            return false;
+            if ($is_available == 0){
+                $stmt = $this->db->getConnection()->prepare("SELECT * FROM products WHERE category_id= :id");
+                $stmt->bindParam(":id",$category_id);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                if ($result)
+                {
+                    return $result;
+                }
+                else{
+                    return false;
+                }
+            }
+            elseif ($is_available > 0){
+                $stmt = $this->db->getConnection()->prepare("SELECT * FROM products WHERE category_id= :id AND count > 0");
+                $stmt->bindParam(":id",$category_id);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                if ($result)
+                {
+                    return $result;
+                }
+                else{
+                    return false;
+                }
+            }
+            else{
+                $stmt = $this->db->getConnection()->prepare("SELECT * FROM products WHERE category_id= :id AND count < 0");
+                $stmt->bindParam(":id",$category_id);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                if ($result)
+                {
+                    return $result;
+                }
+                else{
+                    return false;
+                }
+            }
+
         }
     }
 

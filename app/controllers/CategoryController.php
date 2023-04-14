@@ -34,6 +34,7 @@ class CategoryController {
             ]
         ];
         $category = $this->CategoryModel->get($id);
+
         $categories = $this->CategoryModel->all();
         require 'app/views/admin/category/edit.php';
     }

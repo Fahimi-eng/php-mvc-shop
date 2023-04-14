@@ -20,15 +20,14 @@ class CategoryModel {
 
     public function get($id)
     {
-        $result = $this->db->getConnection()->prepare("SELECT * FROM categories WHERE id= :id");
-        $result->bindParam(":id",$id);
+        $result = $this->db->getConnection()->prepare("SELECT * FROM categories WHERE id = :id");
+        $result->bindParam(":id", $id);
         $result->execute();
-        $record = $result->fetch(PDO::FETCH_ASSOC);
-        if ($record)
-        {
-            return $record;
-        }
-        else{
+        $records = $result->fetch(PDO::FETCH_ASSOC);
+
+        if ($records) {
+           return $records;
+        } else {
             return false;
         }
     }
@@ -64,7 +63,6 @@ class CategoryModel {
 
     public function store($category)
     {
-
         $title = $category['title'];
         $category_id = $category['category_id'];
         //prepare and execute insert query
