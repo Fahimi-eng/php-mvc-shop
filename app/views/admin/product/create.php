@@ -13,8 +13,8 @@
                     <div class="">
 
                         <div class="form-group">
-                            <label for="title">نام محصول</label>
-                            <input name="product[title]" type="text" class="form-control" id="title" placeholder="نام محصول را وارد کنید">
+                            <label for="name">نام محصول</label>
+                            <input name="product[name]" type="text" class="form-control" id="name" placeholder="نام محصول را وارد کنید">
                         </div>
 
                         <div class="form-group">
@@ -76,11 +76,12 @@
                     <p class="text-muted card-sub-title">برای تنظیم کردن تصاویر محصول بهتر است سایز تمامی تصاویر یکسان باشند.</p>
                 </div>
                 <div>
-                    <input id="demo" type="file" name="images[]" accept=".jpg, .png, image/jpeg, image/png">
+                    <input multiple id="demo" type="file" name="images[]" accept=".jpg, .png, image/jpeg, image/png">
                 </div>
             </div>
         </div>
     </div>
+
 </form>
 <!-- row -->
 

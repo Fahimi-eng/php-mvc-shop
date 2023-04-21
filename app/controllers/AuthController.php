@@ -17,6 +17,7 @@ class AuthController {
 
       if ($user) {
         // Redirect to dashboard
+          header('location:/panel');
       } else {
         // Render login view with error message
         require 'app/views/login.php';

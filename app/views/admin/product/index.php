@@ -1,4 +1,5 @@
-<?php include_once 'app/views/admin/layouts/header.php';  ?>
+<?php
+include_once 'app/views/admin/layouts/header.php';  ?>
     <!-- row -->
     <div class="row row-sm">
         <div class="col-xl-12 col-lg-12 col-md-12">
@@ -30,7 +31,7 @@
                                         </button>
                                         <div class="dropdown-menu tx-13">
                                             <h6 class="dropdown-header tx-uppercase tx-11 tx-bold tx-inverse tx-spacing-1">دسته بندی محصولات</h6>
-                                            <?php foreach ($categories as $item):  ?>
+                                             <?php foreach ($categories as $item):  ?>
                                                 <a class="dropdown-item" href="/panel/product?id=<?php echo $item['id']; ?>"><?php echo $item['title']; ?></a>
                                              <?php endforeach; ?>
                                             <div class="dropdown-divider"></div><a class="dropdown-item" href="/panel/product">همه دسته بندی ها</a>
@@ -53,11 +54,10 @@
                 </div>
             </div>
             <!--/div-->
-
             <div class="row row-sm">
                 <?php
                 if ($products){
-                foreach ($products as $product) { ?>
+                foreach ($products as $key=>$product) { ?>
 <!--                start card              -->
                 <div class="col-md-6 col-lg-3 col-xl-3  col-sm-6">
                     <div class="card">
@@ -73,12 +73,12 @@
                                     ?>
                                     <i class="mdi mdi-heart-outline ml-auto wishlist"></i>
                                 </div>
-                                <img class="w-100" src="<?php echo $product['image']; ?>" alt="تصویر محصول">
-                                <a href="#" class="adtocart"> <i class="las la-hand-pointer"></i>
+                                <img class="w-100" src="<?php echo '/'.$product['images'][0]['image']; ?>" alt="تصویر محصول">
+                                <a href="/panel/showproduct?id=<?php echo $product['id']; ?>" class="adtocart"> <i class="las la-hand-pointer"></i>
                                 </a>
                             </div>
                             <div class="text-center pt-3">
-                                <h3 class="h6 mb-2 mt-4 font-weight-bold text-uppercase"><?php echo $product['title'] ; ?></h3>
+                                <h3 class="h6 mb-2 mt-4 font-weight-bold text-uppercase"><?php echo $product['name'] ; ?></h3>
                                 <h4 class="h5 mb-0 mt-2 text-center font-weight-bold text-danger"> <?php echo $product['price'] ; ?> </h4>
                                 <h5 class="h6 mb-0 mt-2 text-center text-dark"> <?php
                                     foreach ($categories as $item) {
@@ -115,7 +115,6 @@
 <!--                end pagination-->
             </div>
         </div>
-
     </div>
     <!-- row closed -->
 

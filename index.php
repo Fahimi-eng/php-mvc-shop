@@ -58,6 +58,9 @@ elseif (str_starts_with($path, '/panel')) {
     else{
         switch ($rest_letters)
         {
+            case 'signin':
+                require 'app/views/admin/signin.php';
+                break;
             //category
             case 'category':
                 $controller = new CategoryController();
@@ -126,9 +129,23 @@ elseif (str_starts_with($path, '/panel')) {
 
             case 'storeproduct':
                 $product = $_POST['product'];
+                $file = $_FILES['images'];
                 $controller = new ProductController();
-                $controller->store($product,$_FILES['images']);
+                $controller->store($product,$file);
                 break;
+
+            case 'showproduct':
+                $id = $_GET['id'];
+                $controller = new ProductController();
+                $controller->show($id);
+                break;
+
+            case 'deleteproduct':
+                $id = $_GET['id'];
+                $controller = new ProductController();
+                $controller->delete($id);
+                break;
+
 
 
 

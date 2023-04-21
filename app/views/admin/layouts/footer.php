@@ -487,12 +487,6 @@
 
 <!-- Switcher js -->
 <script src="/public/admin/switcher/js/switcher-rtl.js"></script>
-<!--Internal Fancy uploader js-->
-<script src="/public/admin/plugins/fancyuploder/jquery.ui.widget.js"></script>
-<script src="/public/admin/plugins/fancyuploder/jquery.fileupload.js"></script>
-<script src="/public/admin/plugins/fancyuploder/jquery.iframe-transport.js"></script>
-<script src="/public/admin/plugins/fancyuploder/jquery.fancy-fileupload.js"></script>
-<script src="/public/admin/plugins/fancyuploder/fancy-uploader.js"></script>
 
 </body>
 </html>

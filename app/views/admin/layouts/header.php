@@ -57,9 +57,6 @@
     <!---Switcher css-->
     <link href="/public/admin/switcher/css/switcher-rtl.css" rel="stylesheet">
     <link href="/public/admin/switcher/demo.css" rel="stylesheet">
-
-    <link href="/public/admin/plugins/fancyuploder/fancy_fileupload.css" rel="stylesheet" />
-
 </head>
 
 <body class="main-body app sidebar-mini">

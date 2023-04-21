@@ -17,21 +17,19 @@ class CategoryModel {
             return false;
         }
     }
-
     public function get($id)
     {
         $result = $this->db->getConnection()->prepare("SELECT * FROM categories WHERE id = :id");
         $result->bindParam(":id", $id);
         $result->execute();
-        $records = $result->fetch(PDO::FETCH_ASSOC);
+        $record = $result->fetch(PDO::FETCH_ASSOC);
 
-        if ($records) {
-           return $records;
+        if ($record) {
+           return $record;
         } else {
             return false;
         }
     }
-
     public function update($id, $category)
     {
         $title = $category['title'];
@@ -50,7 +48,6 @@ class CategoryModel {
             return false;
         }
     }
-
     public function delete($id)
     {
         //prepare and execute delete query
