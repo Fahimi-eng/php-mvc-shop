@@ -1,4 +1,4 @@
-<?php include_once 'app/views/admin/layouts/header.php'; ?>
+<?php include_once 'app/views/admin/layouts/header_extra.php'; ?>
 <!-- row -->
 <form method="post" enctype="multipart/form-data" action="/panel/storeproduct" class="row row-sm">
 
@@ -52,7 +52,6 @@
                                 <option value="0">
                                     مخفی
                                 </option>
-
                             </select>
                         </div>
 
@@ -76,7 +75,7 @@
                     <p class="text-muted card-sub-title">برای تنظیم کردن تصاویر محصول بهتر است سایز تمامی تصاویر یکسان باشند.</p>
                 </div>
                 <div>
-                    <input multiple id="demo" type="file" name="images[]" accept=".jpg, .png, image/jpeg, image/png">
+                    <input multiple id="demo" type="file" name="images" accept=".jpg, .png, image/jpeg, image/png">
                 </div>
             </div>
         </div>

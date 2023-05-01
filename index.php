@@ -23,10 +23,6 @@ if (isset($url_parts['query'])) {
     $query_string = '';
 }
 
-//var_dump($path);
-//var_dump($query_string);
-//die();
-
 // Instantiate controllers based on URL
 if ($path === '/') {
   $controller = new HomeController();
@@ -144,6 +140,19 @@ elseif (str_starts_with($path, '/panel')) {
                 $id = $_GET['id'];
                 $controller = new ProductController();
                 $controller->delete($id);
+                break;
+
+            case 'editproduct':
+                $id = $_GET['id'];
+                $controller = new ProductController();
+                $controller->edit($id);
+                break;
+
+            case 'updateproduct':
+                $product = $_POST['product'];
+                $file = $_FILES['images'];
+                $controller = new ProductController();
+                $controller->update($product['id'], $product, $file);
                 break;
 
 

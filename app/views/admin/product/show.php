@@ -86,7 +86,7 @@ include_once 'app/views/admin/layouts/header.php'; ?>
                             </div>
                         </div>
                         <div class="action">
-                            <button class="add-to-cart btn btn-success" type="button">ویرایش</button>
+                            <a href="/panel/editproduct?id=<?php echo $product_id;?>" class="add-to-cart btn btn-success" type="button">ویرایش</a>
                             <a href="/panel/deleteproduct?id=<?php echo $product_id;?>" class="add-to-cart btn btn-danger" type="button">حذف</a>
                         </div>
                     </div>

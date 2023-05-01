@@ -1,98 +1,107 @@
-<?php
-include_once 'app/views/admin/layouts/header.php'; ?>
-<div class="row row-sm">
-    <div class="col-xl-12">
-        <div class="card">
-            <div class="card-body h-100">
-                <div class="row row-sm ">
-                    <div class=" col-xl-5 col-lg-12 col-md-12">
-                        <div class="preview-pic tab-content">
-                            <?php foreach ($images as $key=>$item): ?>
-                                <div style="max-width: 400px;" class="tab-pane <?php if ($key==0){echo 'active';} ?>  text-center mx-auto" id="pic-<?php echo ++$key; ?>"><img src="/<?php echo $item['image']; ?>" alt="image"></div>
-                            <?php endforeach; ?>
-                        </div>
-                        <ul class="preview-thumbnail text-center mx-auto nav nav-tabs">
-                            <?php foreach ($images as $key=>$item): ?>
-                                <li <?php if ($key==0){echo 'class="active"';} ?>>
-                                    <a data-bs-target="#pic-<?php echo ++$key; ?>" data-bs-toggle="tab" class=""><img src="/<?php echo $item['image'];?>" alt="image"></a>
-                                </li>
-                            <?php endforeach; ?>
+<?php include_once 'app/views/admin/layouts/header.php'; ?>
+<!-- row -->
+<form method="post" enctype="multipart/form-data" action="/panel/updateproduct" class="row row-sm">
 
-                        </ul>
-                    </div>
-                    <div class="details col-xl-7 col-lg-12 col-md-12 mt-4 mt-xl-0">
-                        <h4 class="product-title mb-1"><?php echo $product['name']; ?></h4>
-                        <p class="text-muted tx-13 mb-1">دسته بندی :<?php echo $product['title']?></p>
-                        <!--                        <div class="rating mb-1">-->
-                        <!--                            <div class="stars">-->
-                        <!--                                <span class="fa fa-star checked"></span>-->
-                        <!--                                <span class="fa fa-star checked"></span>-->
-                        <!--                                <span class="fa fa-star checked"></span>-->
-                        <!--                                <span class="fa fa-star text-muted"></span>-->
-                        <!--                                <span class="fa fa-star text-muted"></span>-->
-                        <!--                            </div>-->
-                        <!--                            <span class="review-no">41 بررسی</span>-->
-                        <!--                        </div>-->
-                        <h6 class="price mt-3">قیمت : <span class="h3 mx-2"><?php echo $product['price']?></span>تومان </h6>
-                        <p class="product-description"><?php echo $product['description'];?></p>
-                        <!--                        <p class="vote"><strong>91٪</strong> خریداران از این محصول لذت برده اند! <strong>(87 رأی)</strong></p>-->
-                        <!--                        <div class="sizes d-flex">اندازه ها:-->
-                        <!--                            <span class="size d-flex" data-toggle="tooltip" title="کم اهمیت"><label class="rdiobox mb-0"><input checked="" name="rdio" type="radio"> <span class="font-weight-bold">کوچک</span></label></span>-->
-                        <!--                            <span class="size d-flex" data-toggle="tooltip" title="متوسط"><label class="rdiobox mb-0"><input name="rdio" type="radio"> <span>متوسط</span></label></span>-->
-                        <!--                            <span class="size d-flex" data-toggle="tooltip" title="بزرگ"><label class="rdiobox mb-0"><input name="rdio" type="radio"> <span>بزرگ</span></label></span>-->
-                        <!--                            <span class="size d-flex" data-toggle="tooltip" title="فوق العاده بزرگ"><label class="rdiobox mb-0"><input name="rdio" type="radio"> <span>خیلی بزرگ</span></label></span>-->
-                        <!--                        </div>-->
-                        <div class="colors d-flex me-3 mt-2">
-                            <span class="mt-2">رنگ ها:</span>
-                            <div class="row gutters-xs ms-4">
-                                <div class="w-auto  ps-0 pe-0" id="m-l-c-2">
-                                    <label class="colorinput">
-                                        <input name="color" type="radio" value="azure" class="colorinput-input" >
-                                        <span class="colorinput-color bg-danger"></span>
-                                    </label>
-                                </div>
-                                <div class="w-auto  ps-0 pe-0" id="m-l-c-2">
-                                    <label class="colorinput">
-                                        <input name="color" type="radio" value="indigo" class="colorinput-input">
-                                        <span class="colorinput-color bg-secondary"></span>
-                                    </label>
-                                </div>
-                                <div class="w-auto  ps-0 pe-0" id="m-l-c-2">
-                                    <label class="colorinput">
-                                        <input name="color" type="radio" value="purple" class="colorinput-input">
-                                        <span class="colorinput-color bg-dark"></span>
-                                    </label>
-                                </div>
-                                <div class="w-auto  ps-0 pe-0" id="m-l-c-2">
-                                    <label class="colorinput">
-                                        <input name="color" type="radio" value="pink" class="colorinput-input">
-                                        <span class="colorinput-color bg-pink"></span>
-                                    </label>
-                                </div>
-                            </div>
+    <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12">
+        <div class="card  box-shadow-0">
+            <div class="card-header">
+                <h4 class="card-title mb-1">ویرایش محصول </h4>
+                <p class="mb-2">برای ویرایش محصول جدید لازم است تمامی فیلدهای مشخص شده پر شود.</p>
+            </div>
+            <div class="card-body pt-0">
+                <div>
+                    <div class="form-group">
+                        <div class="form-group visually-hidden">
+                            <label for="name">ID</label>
+                            <input value="<?php echo $product_id;?>" name="product[id]" type="text" class="form-control" id="id">
                         </div>
-                        <div class="d-flex  mt-2">
-                            <div class="mt-2 product-title">موجودی :</div>
-                            <div class="d-flex ml-2">
-                                <ul class=" mb-0 qunatity-list">
-                                    <li>
-                                        <div class="form-group">
-                                            <select name="quantity" id="select-countries17" class="form-control nice-select wd-100" >
-                                                <option disabled value="1" selected=""><?php echo $product['count']; ?></option>
-                                            </select>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="form-group">
+                            <label for="name">نام محصول</label>
+                            <input value="<?php echo $product['name'];?>" name="product[name]" type="text" class="form-control" id="name" placeholder="نام محصول را وارد کنید">
                         </div>
-                        <div class="action">
-                            <button class="add-to-cart btn btn-success" type="button">ویرایش</button>
-                            <a href="/panel/deleteproduct?id=<?php echo $product_id;?>" class="add-to-cart btn btn-danger" type="button">حذف</a>
+
+                        <div class="form-group">
+                            <label for="price">قیمت</label>
+                            <input value="<?php echo $product['price'];?>" name="product[price]" type="text" class="form-control" id="price" placeholder="قیمت محصول را وارد نمایید.">
                         </div>
+
+                        <div class="form-group">
+                            <label for="count">تعداد</label>
+                            <input value="<?php echo $product['count'];?>" name="product[count]" type="number" class="form-control" id="count" placeholder="رنگ محصول را وارد نمایید.">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="color">رنگ</label>
+                            <input value="<?php echo $product['color'];?>" name="product[color]" type="text" class="form-control" id="color" placeholder="رنگ محصول را وارد نمایید.">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">انتخاب دسته بندی</label>
+                            <select id="category" name="product[category_id]" class="form-control select2-no-search">
+                                <?php foreach ($categories as $category) { ?>
+                                    <option value="<?php echo $category['id']; ?>">
+                                        <?php echo $category['title']; ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="visible">وضعیت نمایش</label>
+                            <select id="visible" name="product[is_visible]" class="form-control select2-no-search">
+                                <option value="1">
+                                    نمایش
+                                </option>
+                                <option <?php if ($product['visible']){ echo 'selected'; }  ?> value="0">
+                                    مخفی
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">توضیحات</label>
+                            <textarea name="product[description]" id="description" class="form-control" placeholder="توضیحات را وارد نمایید." rows="9">
+                                <?php echo $product['description']; ?>
+                            </textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mt-3 mb-0">ویرایش</button>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <h6 class="card-title mb-1">بارگذاری تصاویر جدید</h6>
+                    <p class="text-muted card-sub-title">برای تنظیم کردن تصاویر محصول بهتر است سایز تمامی تصاویر یکسان باشند.</p>
+                </div>
+                <div>
+                    <input multiple id="demo" type="file" name="images[]" accept=".jpg, .png, image/jpeg, image/png">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <?php foreach ($images as $image): ?>
+            <div class="col-12 col-md-6">
+                <div class="card card-danger">
+                    <div class="card-header pb-0">
+                        <img src="<?php echo '/'.$image['image'];?>" alt="">
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-danger btn-block">حذف</button>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+</form>
+<!-- row -->
+
 <?php include_once 'app/views/admin/layouts/footer.php'; ?>

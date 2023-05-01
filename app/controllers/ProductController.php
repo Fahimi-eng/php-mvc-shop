@@ -88,9 +88,35 @@ class ProductController
     }
     public function edit($id)
     {
+        $breadcrumb = [
+            'topic' =>[
+                'title'=>'تجارت الکترونیک'
+            ],
+            'data' =>[
+                ['title' => 'محصولات', 'url' => '/panel/product'],
+                ['title' => 'ویرایش محصول', 'url' => '']
+            ]
+        ];
+        $categories = $this->CategoryModel->all();
         $product = $this->ProductModel->get($id);
+        $images = $this->ImageModel->get_images_by_product_id($id);
+        $product_id = $id;
         require 'app/views/admin/product/edit.php';
     }
+
+    public function update($id , $product, $images)
+    {
+        $result = $this->ProductModel->update($id, $product, $images);
+        if ($result){
+            $message = true;
+        }
+        else{
+            $message=false;
+        }
+        header('location:/panel/product?message='.$message);
+    }
+
+
     
 //internal functions
 private function upload_image($file, $path) 
